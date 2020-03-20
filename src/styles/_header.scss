@@ -1,0 +1,56 @@
+header {
+    .menu {
+        background: white;
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: calc(100vh - 160px); // so that the second sections heading is always visible
+        padding: 0 24px;
+
+        .hero-logo {
+            max-width: 600px;
+            width: 100%;
+        }
+    
+        .hero-sub {
+            max-width: 410px;
+            margin-top: 0;
+            font-size: 22px;
+            color: black;
+            text-align: center;
+        }
+    
+        .hero-button {
+            pointer-events: all;
+            padding: 10px 20px;
+            border: 1px solid black;
+            border-radius: 20px;
+            width: 160px;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+    
+            a {
+                text-decoration: none;
+                font-size: 12px;
+                font-style: none;
+                font-family: 'IBM Plex Mono';
+                color: black;
+            }
+    
+            .icon {
+                width: 20px;
+                margin-top: -3px;
+            }
+        }
+    }
+
+    
+}
