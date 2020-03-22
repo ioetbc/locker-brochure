@@ -13,7 +13,7 @@ class DownloadCounter extends Component {
 
         return (
             <div className="counter">
-                
+                <h1 style={{color: 'white', textAlign: 'center'}}>{count}</h1>
             </div>
         );
     }

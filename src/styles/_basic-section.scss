@@ -1,9 +1,23 @@
 .section {
     background: black;
-    padding: 120px 24px;  
+    padding: 0 24px 120px 24px;  
     position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+
+    
 
     .sub-text {
         color: white;
+        position: relative;
+        z-index: 1;
+    }
+
+    .divider-line {
+        position: absolute;
+        width: 130%;
+        left: -10%;
+        right: 0;
+        bottom: 0;
     }
 }

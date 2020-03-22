@@ -1,0 +1,11 @@
+.logo-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    .logo {
+        background: white;
+        width: 25%;
+        height: 50px;
+        margin: 24px 8% 0 0;
+    }
+}

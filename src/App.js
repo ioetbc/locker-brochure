@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.scss';
-import file from './dist.zip';
-import Logo from './images/hero-logo.svg';
-import Video from './images/explainer-video.mp4';
-import Background from './images/background.svg';
-import DownloadIcon from './images/download-icon.svg';
+import axios from 'axios';
+
+import Header from './components/Header';
 import BasicSection from './components/BasicSection';
-import Menu from './components/Menu';
 import DownloadCounter from './components/DownloadCounter';
+import ReviewCarousel from './components/ReviewCarousel';
+import CustomerLogos from './components/CustomerLogos';
+import Footer from './components/Footer';
 
 class App extends Component {
 	constructor(props) {
@@ -18,8 +17,34 @@ class App extends Component {
 		this.updateCounter = this.updateCounter.bind(this);
 	}
 
+	componentDidMount() {
+		const shit = axios({
+			method: 'get',
+			url: 'https://us-central1-locker-8bd45.cloudfunctions.net/getDownloadCount',
+			config: {
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			},
+		})
+		.then((res) => console.log('hahaha what', res))
+	}
+
 	updateCounter() {
-		this.setState({ count: this.state.count + 1 })
+		this.setState({ count: this.state.count + 1 }, () => {
+			return axios({
+				method: 'post',
+				url: 'https://us-central1-locker-8bd45.cloudfunctions.net/increaseDownloadCount',
+				config: {
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				},
+				data: {
+					count: this.state.count,
+				},
+			});
+		})
 	}
 
 	render() {
@@ -27,41 +52,42 @@ class App extends Component {
 
 		return (
 			<div className="app">
-				<header>
-					<Menu />
-					<div className="content">
-						<object className="hero-logo" data={Logo} type="image/svg+xml" />
-						<p className="hero-sub">An application that locks your Mac seconds after you walk away from your desk.</p>
-						<div className="hero-button">
-							<img className="icon" src={DownloadIcon}></img>
-							<a
-								href={file}
-								download="work lock"
-								onClick={this.updateCounter}
-							>
-								Download for Mac
-							</a>
-						</div>
-					</div>
-				</header>
-
-				<DownloadCounter
-					count={count}
+				<Header
+					updateCounter={this.updateCounter}
 				/>
+				{/* <DownloadCounter
+					count={count}
+				/> */}
 
 				<BasicSection
-					title="Who's it for?"
-					content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+					title="what"
+					text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+					divider={true}
 				/>
 
-				<section className="who-container">
-					<h3 className="heading">How does it work?</h3>
-					{ /* <div className="who-video">
-						<video width="100%" height="100%" controls autoplay>
-							<source src={Video} type="video/mp4"></source>
-						</video>
-					</div> */}
-				</section>
+				<CustomerLogos />
+
+				<ReviewCarousel />
+
+				<Footer />
+
+				{/* Support the app and donate 
+				1. paypal
+				2. bitcoin
+				4. card
+				5. find aload of alternatives
+
+				get in touch
+				
+				like what you see? > download button
+				*/}
+
+
+				{/* TODO make the sections slide in as you scroll */}
+				{/* TODO add in left and right arrows to the carousel */}
+
+
+
 			</div>
 		);
 	}
