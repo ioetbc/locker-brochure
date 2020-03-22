@@ -55,6 +55,7 @@ class App extends Component {
 				<Header
 					updateCounter={this.updateCounter}
 				/>
+
 				{/* <DownloadCounter
 					count={count}
 				/> */}
@@ -71,22 +72,10 @@ class App extends Component {
 
 				<Footer />
 
-				{/* Support the app and donate 
-				1. paypal
-				2. bitcoin
-				4. card
-				5. find aload of alternatives
-
-				get in touch
-				
-				like what you see? > download button
-				*/}
-
-
 				{/* TODO make the sections slide in as you scroll */}
 				{/* TODO add in left and right arrows to the carousel */}
-
-
+				{/* TODO add in the counter to the top make it really small under the download button */}
+				{/* TODO make a "donate" section */}
 
 			</div>
 		);

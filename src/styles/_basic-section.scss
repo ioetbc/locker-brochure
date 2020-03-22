@@ -15,9 +15,35 @@
 
     .divider-line {
         position: absolute;
-        width: 130%;
+        width: 120vw;
         left: -10%;
         right: 0;
         bottom: 0;
+
+
+    }
+
+    .divider-lol {
+        background: url('../images/phat-line.svg');
+        background-repeat: no-repeat;
+        position: absolute;
+        bottom: -80px;
+        left: -10%;
+        width: 120vw;
+        height: 300px;
+
+        @media screen and (min-width: 768px) {
+            bottom: -130px;
+            left: -50%;
+            width: 150vw;
+            height: 450px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            bottom: -160px;
+            left: -80%;
+            width: 120vw;
+            height: 520px;
+        }
     }
 }

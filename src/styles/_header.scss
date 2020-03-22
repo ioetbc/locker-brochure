@@ -13,6 +13,10 @@ header {
         height: calc(100vh - 207px); // so that the second sections heading is always visible
         padding: 0 24px;
 
+        @media screen and (min-width: 768px) {
+            height: calc(100vh - 234px); // to account for the extra padding on the hamburger
+        }
+
         .hero-logo {
             max-width: 600px;
             width: 100%;
