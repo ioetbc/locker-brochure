@@ -4,7 +4,7 @@ import Logo from '../images/hero-logo-blue.svg';
 
 function Footer() {
 	return (
-        <section className="section footer">
+        <section className="footer">
             <object className="footer-logo" data={Logo} type="image/svg+xml" />
         </section>
 	);

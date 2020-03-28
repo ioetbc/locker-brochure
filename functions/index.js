@@ -19,22 +19,26 @@ const db = admin.firestore();
 exports.getDownloadCount = functions.https.onRequest(async (req, res) => {
     cors(req, res, async () => {
         const ref = db.collection('downloadCounter').doc('yVKW54i1BmjDx1kU1pf9');
-        let count = '0';
+        let count = 'hello';
 
-        ref.get()
+        await ref.get()
             .then(doc => {
                 if (!doc.exists) {
                     return console.log('No such document!');
                 } else {
                     const currentCount = doc.data();
-                    console.log('fuck shit balls', currentCount.count);
+                    console.log('updating count var', currentCount.count);
                     count = currentCount.count;
+                    console.log('just updated the count var', count);
+
                     return count;
                 }
             })
             .catch(() => res.send(500));
 
-        res.send(300, count)
+        console.log('gunna send this cour', count);
+
+        res.send({ count: count })
     });
 });
 

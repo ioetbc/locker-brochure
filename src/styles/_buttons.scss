@@ -1,0 +1,35 @@
+.hero-button {
+    pointer-events: all;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 160px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+
+    &.donate {
+        border-color: white;
+        margin: 24px 0 0 0;
+        a {
+            color: white;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 12px;
+        font-style: none;
+        font-family: 'IBM Plex Mono';
+        color: black;
+    }
+
+    .icon {
+        width: 20px;
+        margin-top: -3px;
+    }
+}

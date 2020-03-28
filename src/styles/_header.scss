@@ -1,5 +1,15 @@
 header {
-    background: blue;
+    background: linear-gradient(118deg, #0400ff, #0077ff);
+    background-size: 400% 400%;
+    
+    animation: AnimationName 5s ease infinite;
+
+    @keyframes AnimationName {
+        0% {background-position:0% 50%}
+        50% {background-position:100% 50%}
+        100% {background-position:0% 50%}
+    }
+
     margin-bottom: 120px;
     .menu {
         background: white;
@@ -10,12 +20,8 @@ header {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        height: calc(100vh - 207px); // so that the second sections heading is always visible
+        height: 85vh;
         padding: 0 24px;
-
-        @media screen and (min-width: 768px) {
-            height: calc(100vh - 234px); // to account for the extra padding on the hamburger
-        }
 
         .hero-logo {
             max-width: 600px;
@@ -28,34 +34,6 @@ header {
             font-size: 22px;
             color: black;
             text-align: center;
-        }
-    
-        .hero-button {
-            pointer-events: all;
-            padding: 10px 20px;
-            border: 1px solid black;
-            border-radius: 20px;
-            width: 160px;
-            margin: 0 auto;
-            text-align: center;
-            margin-top: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            cursor: pointer;
-    
-            a {
-                text-decoration: none;
-                font-size: 12px;
-                font-style: none;
-                font-family: 'IBM Plex Mono';
-                color: black;
-            }
-    
-            .icon {
-                width: 20px;
-                margin-top: -3px;
-            }
         }
     }
 

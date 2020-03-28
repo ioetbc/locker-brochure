@@ -1,4 +1,10 @@
 .video {
-    // border: 1px solid white;
-    // border-radius: 8px;
+    @media screen and (min-width: 768px) {
+        min-width: 750px;
+        margin: 0 auto;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 80px;
+    }
 }

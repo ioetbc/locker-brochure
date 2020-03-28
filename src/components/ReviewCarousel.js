@@ -12,16 +12,28 @@ class ReviewCarousel extends Component {
     }
 
     transformCarousel() {
-        const carouselWidth = document.getElementById('carousel').clientWidth;
-        this.setState({ carouselWidth });
-
         setInterval(() => {
             this.setState({ translateInt: this.state.translateInt + 100 });
         }, 3000);
     }
 
     render() {
-        const { translateInt, carouselWidth } = this.state;
+        const { translateInt } = this.state;
+        const reviews = [
+            'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure iusto vero et quam mollitia incidunt.',
+            'Lorem ipsum dolor, sit amet consectetur adipisicing perspiciatis.',
+            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure iusto vero et quam mollitia incidunt temporibus ducimus repellendus doloremque.',
+            'Lorem ipsum dolor.',
+            'Lorem ipsum dolor, sit amet elit.',
+            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure iusto vero et quam mollitia incidunt. consectetur adipisicing perspiciatis.',
+            'Lorem ipsum dolor.',
+            'Lorem ipsum dolor, sit amet consectetur adipisicing.',
+            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure iusto vero et ducimus repellendus doloremque.'
+        ]
+
+        const carouselWidth = reviews.length * 200;
+
         let translateValue;
 
         if (translateInt < carouselWidth) {
@@ -31,7 +43,6 @@ class ReviewCarousel extends Component {
             this.setState({ translateInt: 0});
         }
 
-
         return (
             <section className="section">
                 <h3 className="heading">reviews.</h3>
@@ -40,21 +51,7 @@ class ReviewCarousel extends Component {
                     className="reviews-carousel"
                     style={{ transform: translateValue }}
                 >
-                    <div className="review">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                    </div>
-                    <div className="review">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure iusto vero et quam mollitia incidunt.</p>
-                    </div>
-                    <div className="review">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing perspiciatis.</p>
-                    </div>
-                    <div className="review">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure iusto vero et quam mollitia incidunt temporibus ducimus repellendus doloremque.</p>
-                    </div>
-                    <div className="review">
-                        <p>Lorem ipsum dolor.</p>
-                    </div>
+                    {reviews.map((r, i) => <div className="review" key={i}><p>{r}</p></div>)}
                 </div>
             </section>
         );

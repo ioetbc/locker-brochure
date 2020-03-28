@@ -5,7 +5,17 @@
     max-width: 400px;
     margin: 0 auto;
 
-    
+    opacity: 0;
+    transform: translateY(2vh);
+    visibility: hidden;
+    transition: opacity 0.6s ease-out, transform 1.2s ease-out;
+    will-change: opacity, visibility;
+
+    &.fade-in {
+        opacity: 1;
+        transform: none;
+        visibility: visible;
+    }
 
     .sub-text {
         color: white;
