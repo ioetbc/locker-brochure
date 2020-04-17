@@ -27,16 +27,12 @@ exports.getDownloadCount = functions.https.onRequest(async (req, res) => {
                     return console.log('No such document!');
                 } else {
                     const currentCount = doc.data();
-                    console.log('updating count var', currentCount.count);
                     count = currentCount.count;
-                    console.log('just updated the count var', count);
 
                     return count;
                 }
             })
             .catch(() => res.send(500));
-
-        console.log('gunna send this cour', count);
 
         res.send({ count: count })
     });
@@ -53,13 +49,53 @@ exports.increaseDownloadCount = functions.https.onRequest(async (req, res) => {
                     return console.log('No such document!');
                 } else {
                     const currentCount = doc.data();
-                    console.log('the current count', currentCount.count);
                     count = currentCount.count;
-
                     const updatedCount = parseInt(count, 10) + 1;
-                    console.log('updatedCount', updatedCount)
-            
+
                     return ref.update({ 'count': updatedCount })
+                        .then(() => res.send(200))
+                        .catch(() => res.send(500));
+                }
+            })
+            .catch(() => res.send(500));
+
+        return res.send(200);
+    });
+});
+
+exports.getReviews = functions.https.onRequest(async (req, res) => {
+    cors(req, res, async () => {
+        const ref = db.collection('reviews').doc('9EW2fIyzWGokliR4TmJi');
+        let reviews = [];
+
+        await ref.get()
+            .then(doc => {
+                if (!doc.exists) {
+                    return console.log('No such document!');
+                } else {
+                    const data = doc.data();
+                    reviews = data.reviews;
+                    return reviews;
+                }
+            })
+            .catch(() => res.send(500));
+
+        res.send({ reviews: reviews })
+    });
+});
+
+exports.addReview = functions.https.onRequest(async (req, res) => {
+    cors(req, res, async () => {
+        const ref = db.collection('reviews').doc('9EW2fIyzWGokliR4TmJi');
+
+        ref.get()
+            .then(doc => {
+                if (!doc.exists) {
+                    return console.log('No such document!');
+                } else {            
+                    return ref.update({
+                        reviews: admin.firestore.FieldValue.arrayUnion(req.body.review)
+                    })
                         .then(() => res.send(200))
                         .catch(() => res.send(500));
                 }

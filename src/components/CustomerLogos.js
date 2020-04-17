@@ -1,23 +1,18 @@
 import React from 'react';
 
+import ByMilesLogo from '../images/logos/bymiles.png';
+
 function CusomerLogos() {
 	return (
-        <section className="section">
-            <h3 className="heading">customer logos.</h3>
-
-            <div className="logo-wrapper">
-                <div className="logo"></div>
-                <div className="logo"></div>
-                <div className="logo"></div>
-                <div className="logo"></div>
-                <div className="logo"></div>
-                <div className="logo"></div>
-                <div className="logo"></div>
-                <div className="logo"></div>
-                <div className="logo"></div>
-                <div className="logo"></div>
-            </div>
-        </section>
+        <div className="logo-wrapper">
+            <img src={ByMilesLogo}></img>
+            <img src={ByMilesLogo}></img>
+            <img src={ByMilesLogo}></img>
+            <img src={ByMilesLogo}></img>
+            <img src={ByMilesLogo}></img>
+            <img src={ByMilesLogo}></img>
+            <img src={ByMilesLogo}></img>
+        </div>
 	);
 }
 

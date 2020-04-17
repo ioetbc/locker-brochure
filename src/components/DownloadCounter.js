@@ -13,15 +13,12 @@ class DownloadCounter extends Component {
         console.log('countArray', countArray);
 
         return (
-            <Fragment>
-                <section className="section">
-                    <h3 className="heading">downloads.</h3>
-                    <p style={{ color: '#151515' }}>a rob easter egg: download the app 3 times to reveal my real name</p>
-                    <div className="counter">
-                        {countArray.map(n => <span style={{color: 'white', textAlign: 'center'}}>{n}</span>)}
-                    </div>
-                </section>
-            </Fragment>
+            <div className="counter">
+                {/* <h1 className="heading" style={{ color: 'blue', textTransform: 'none' }}>Downloads</h1> */}
+                <div className="counter-wrapper">
+                    {countArray.map(n => <span style={{color: 'white', textAlign: 'center'}}>{n}</span>)}
+                </div>
+            </div>
         );
     }
 }

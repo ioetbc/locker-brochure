@@ -1,11 +1,26 @@
 .reviews-carousel {
     display: flex;
-    // overflow-x: visible;
-    transition: transform 0.3s ease;
+    animation: moveSlideshow 30s linear infinite;
+    transform: translate3d(0, 0, 0);
+
+    @keyframes moveSlideshow {
+        0% { 
+            transform: translateX(0%);
+        }
+        10% {
+            transform: translateX(0%); 
+        }
+        97% { 
+          transform: translateX(-100%);
+        }
+        100% { 
+            transform: translateX(0%);
+        }
+    }
 
     .review {
-        width: 200px;
-        margin: 0 24px;
+        min-width: 280px;
+        margin: 0 32px;
 
         &:nth-child(1) {
             margin: 0 24px 0 0;

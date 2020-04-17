@@ -5,9 +5,9 @@ header {
     animation: AnimationName 5s ease infinite;
 
     @keyframes AnimationName {
-        0% {background-position:0% 50%}
-        50% {background-position:100% 50%}
-        100% {background-position:0% 50%}
+        0% { background-position:0% 50% }
+        50% { background-position:100% 50% }
+        100% { background-position:0% 50% }
     }
 
     margin-bottom: 120px;
@@ -20,7 +20,7 @@ header {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        height: 85vh;
+        height: calc(100vh - 64px);
         padding: 0 24px;
 
         .hero-logo {
@@ -38,4 +38,8 @@ header {
     }
 
     
+}
+
+* {
+    color: white!important;
 }

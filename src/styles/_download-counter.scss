@@ -1,11 +1,40 @@
 .counter {
-    margin-top: 70px;
-    span {
-        color: white;
+    .heading {
+        font-size: 100px;
         text-align: center;
-        padding: 20px 10px;
-        border: 1px solid white;
-        border-radius: 10px;
-        margin-right: 24px;
+        border-bottom: none!important;
+        letter-spacing: 7px;
+        margin: 0;
+    }
+    // .counter-wrapper {
+    //     text-align: right;
+    //     position: relative;
+    //     top: -30px;
+    //     right: 28px;
+    //     span {
+    //         color: white;
+    //         text-align: center;
+    //         padding: 30px 15px;
+    //         border: 1px solid white;
+    //         border-radius: 40px;
+    //         margin-right: 16px;
+    //         font-size: 35px;
+    //         font-family: 'IBM Plex Mono';
+    //     }
+    // }
+
+    .counter-wrapper {
+        margin-top: 60px;
+
+        span {
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+            border: 2px solid white;
+            border-radius: 10px;
+            margin-right: 16px;
+            font-size: 35px;
+            font-family: 'IBM Plex Mono';
+        }
     }
 }

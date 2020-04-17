@@ -2,7 +2,7 @@
     pointer-events: all;
     padding: 10px 20px;
     border: 1px solid black;
-    border-radius: 20px;
+    border-radius: 7px;
     width: 160px;
     margin: 0 auto;
     text-align: center;
@@ -14,10 +14,27 @@
 
     &.donate {
         border-color: white;
-        margin: 24px 0 0 0;
-        a {
-            color: white;
+        margin: 0;
+
+        &:nth-child(2) {
+            margin: 24px 0;
         }
+
+        a {
+            color: blue;
+        }
+    }
+
+    &.reviews {
+        float: right;
+        position: relative;
+        top: -80px;
+        background: transparent;
+        font-family: 'IBM Plex Mono';
+        border: white solid 1px;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     a {

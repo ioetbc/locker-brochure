@@ -1,57 +1,38 @@
 import React, { Component } from 'react';
 
+import axios from 'axios';
+
 class ReviewCarousel extends Component {
     constructor(props) {
         super(props);
-        this.state = { translateInt: 0 }
-        this.transformCarousel = this.transformCarousel.bind(this);
+        this.state = { reviews: [] }
     }
 
     componentDidMount() {
-        this.transformCarousel();
-    }
-
-    transformCarousel() {
-        setInterval(() => {
-            this.setState({ translateInt: this.state.translateInt + 100 });
-        }, 3000);
+        axios({
+			method: 'get',
+			url: 'https://us-central1-locker-8bd45.cloudfunctions.net/getReviews',
+			config: {
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			},
+		})
+		.then((res) => this.setState({ reviews: res.data.reviews.reverse() }));
     }
 
     render() {
-        const { translateInt } = this.state;
-        const reviews = [
-            'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
-            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure iusto vero et quam mollitia incidunt.',
-            'Lorem ipsum dolor, sit amet consectetur adipisicing perspiciatis.',
-            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure iusto vero et quam mollitia incidunt temporibus ducimus repellendus doloremque.',
-            'Lorem ipsum dolor.',
-            'Lorem ipsum dolor, sit amet elit.',
-            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure iusto vero et quam mollitia incidunt. consectetur adipisicing perspiciatis.',
-            'Lorem ipsum dolor.',
-            'Lorem ipsum dolor, sit amet consectetur adipisicing.',
-            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure iusto vero et ducimus repellendus doloremque.'
-        ]
-
+        const { reviews } = this.state;
         const carouselWidth = reviews.length * 200;
 
-        let translateValue;
-
-        if (translateInt < carouselWidth) {
-            translateValue = `translateX(-${translateInt}px)`;
-        } else {
-            translateValue = 'translateX(0px)';
-            this.setState({ translateInt: 0});
-        }
-
         return (
-            <section className="section">
-                <h3 className="heading">reviews.</h3>
+            <section style={{ maxWidth: 'none' }}>
                 <div
                     id="carousel"
                     className="reviews-carousel"
-                    style={{ transform: translateValue }}
+                    style={{ width: carouselWidth }}
                 >
-                    {reviews.map((r, i) => <div className="review" key={i}><p>{r}</p></div>)}
+                    {reviews.map((r, i) => <div className="review" key={i}><p>{r.review}</p><p>{r.name}</p></div> )}
                 </div>
             </section>
         );
