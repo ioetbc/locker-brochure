@@ -18,7 +18,7 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { count: 0, video: false, hideCounter: false };
+		this.state = { count: 0, video: false, showMoreLogos: false };
 		this.updateCounter = this.updateCounter.bind(this);
 		this.fadeInSections = this.fadeInSections.bind(this);
 	}
@@ -34,7 +34,6 @@ class App extends Component {
 			},
 		})
 		.then((res) => this.setState({ currentCount: res.data.count }))
-		.catch((error) => this.setState({ hideCounter: true }));
 
 		this.fadeInSections();
 	}
@@ -95,9 +94,7 @@ class App extends Component {
 	}
 
 	render() {
-		const { video, hideCounter, currentCount } = this.state;
-		console.log('video', video)
-
+		const { video, currentCount } = this.state;
 		return (
 			<div className="app">
 				<Header
@@ -113,14 +110,17 @@ class App extends Component {
 				/>
 
 				<Generic
-					backgroundColor="black"
+					backgroundColor="white"
 					title="Who's using it?"
 				>
-					<CustomerLogos />
+					<CustomerLogos
+						getCustomerLogoWrapperHeight={() => this.setState({ showMoreLogos: !this.state.showMoreLogos })}
+						showMoreLogos={this.state.showMoreLogos}
+					/>
 				</Generic>
 
 				<Generic
-					backgroundColor="black"
+					backgroundColor="blue"
 					title="Reviews"
 					cta="Submit review"
 					addReview={this.addReview}
@@ -128,20 +128,12 @@ class App extends Component {
 					<ReviewCarousel />
 				</Generic>
 
-				<Generic
-					backgroundColor="black"
-					title="Downloads"
-					cta="Download app"
-				>
-					{!hideCounter &&
-						<DownloadCounter
-							count={currentCount}
-						/>
-					}
-				</Generic>
+				<DownloadCounter
+					count={currentCount}
+				/>
 
 				<Generic
-					backgroundColor="black"
+					backgroundColor="white"
 					title="Donate"
 				>
 					<Donate />

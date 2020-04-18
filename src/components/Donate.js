@@ -5,20 +5,19 @@ function Donate() {
         <Fragment>
             <div className="donate-wrapper">
                 <div>
-                    <p className="sub-text" style={{ maxWidth: '480px', margin: '0px' }}>Donate £2.00 to pay for Will's next meal.</p>
-                    <div class="slidecontainer">
-                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange"></input>
-                    </div>
+                    <p className="sub-text" style={{ maxWidth: '480px', margin: '0px' }}>
+                        Feed a hungry will's need for snax to keep the app going. Donate all your money to him.
+                    </p>
                 </div>
                 <div>
                 <div className="hero-button donate">
-                    <a download="work lock">paypal</a>
+                    <a>paypal</a>
                 </div>  		
                 <div className="hero-button donate">
-                    <a download="work lock">credit / debit card</a>
+                    <a>credit / debit card</a>
                 </div>  		
                 <div className="hero-button donate">
-                    <a download="work lock">monzo</a>
+                    <a>monzo</a>
                 </div>  	
                 </div>
             </div>

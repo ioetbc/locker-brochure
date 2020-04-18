@@ -10,13 +10,14 @@ class DownloadCounter extends Component {
         const { count } = this.props;
         const fudge = count + 4649;
         const countArray = fudge.toString().split('');
-        console.log('countArray', countArray);
 
         return (
             <div className="counter">
-                {/* <h1 className="heading" style={{ color: 'blue', textTransform: 'none' }}>Downloads</h1> */}
-                <div className="counter-wrapper">
-                    {countArray.map(n => <span style={{color: 'white', textAlign: 'center'}}>{n}</span>)}
+                <div className="padding downloads">
+                    <h1 className="heading" style={{ color: 'blue', textTransform: 'none' }}>Downloads</h1>
+                    <div className="counter-wrapper">
+                        {countArray.map(n => <span style={{color: 'white', textAlign: 'center'}}>{n}</span>)}
+                    </div>
                 </div>
             </div>
         );

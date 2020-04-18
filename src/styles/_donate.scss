@@ -2,6 +2,10 @@
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+
+    .sub-text, a {
+      color: blue;
+    }
 }
 
 .slidecontainer {

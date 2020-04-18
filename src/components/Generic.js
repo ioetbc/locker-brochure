@@ -26,7 +26,7 @@ class Generic extends Component {
 
         return (
             <Fragment>
-                <section className="generic" style={{ background: backgroundColor }}>
+                <section className={`generic ${cta && 'cta'}`} style={{ background: backgroundColor }}>
                     <div className="padding">
                         <div>
                         {title &&

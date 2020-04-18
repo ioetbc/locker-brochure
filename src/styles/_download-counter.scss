@@ -1,40 +1,75 @@
 .counter {
-    .heading {
-        font-size: 100px;
-        text-align: center;
-        border-bottom: none!important;
-        letter-spacing: 7px;
-        margin: 0;
-    }
-    // .counter-wrapper {
-    //     text-align: right;
-    //     position: relative;
-    //     top: -30px;
-    //     right: 28px;
-    //     span {
-    //         color: white;
-    //         text-align: center;
-    //         padding: 30px 15px;
-    //         border: 1px solid white;
-    //         border-radius: 40px;
-    //         margin-right: 16px;
-    //         font-size: 35px;
-    //         font-family: 'IBM Plex Mono';
-    //     }
-    // }
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0;
 
+    @media screen and (min-width: 900px) {
+        margin-right: 52px; // width of one of the counters so that it look more center
+    }
+
+    .heading {
+        text-align: center;
+        font-size: 45px;
+        letter-spacing: 4px;
+        font-weight: lighter;
+        border-bottom: none!important;
+
+        @media screen and (min-width: 400px) {
+            font-size: 60px;
+            margin: 0;
+        }
+
+        @media screen and (min-width: 600px) {
+            font-size: 90px;
+        }
+
+        @media screen and (min-width: 900px) {
+            font-size: 110px;
+            letter-spacing: 7px;
+        }
+    }
     .counter-wrapper {
-        margin-top: 60px;
+        position: relative;
+        margin-top: 40px;
+
+        @media screen and (min-width: 500px) {
+            margin-top: 30px;
+        }
+
+        @media screen and (min-width: 800px) {
+            top: -28px;
+            right: -70px;
+            margin-top: 0;
+            text-align: right;
+        }
+
+        @media screen and (min-width: 900px) {
+            padding: 22px 15px;
+            top: -70px;
+            font-size: 48px;
+        }
 
         span {
             color: white;
             text-align: center;
-            padding: 30px 15px;
+            font-size: 32px;
+            padding: 20px 12px;
             border: 2px solid white;
-            border-radius: 10px;
-            margin-right: 16px;
-            font-size: 35px;
+            border-radius: 40px;
+            margin-right: 10px;
             font-family: 'IBM Plex Mono';
+
+            @media screen and (min-width: 600px) {
+                padding: 20px 15px;
+                font-size: 48px;
+            }
+
+            @media screen and (min-width: 900px) {
+                padding: 20px 10px;
+                font-size: 60px;
+            }
         }
     }
 }

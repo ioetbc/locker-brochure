@@ -13,7 +13,7 @@
     cursor: pointer;
 
     &.donate {
-        border-color: white;
+        border-color: blue;
         margin: 0;
 
         &:nth-child(2) {
@@ -27,14 +27,19 @@
 
     &.reviews {
         float: right;
-        position: relative;
-        top: -80px;
+        position: absolute;
         background: transparent;
         font-family: 'IBM Plex Mono';
         border: white solid 1px;
         color: white;
         text-transform: uppercase;
         letter-spacing: 1px;
+        bottom: 100px;
+        @media screen and (min-width: 600px) {
+            position: relative;
+            top: -80px;
+            bottom: auto;
+        }
     }
 
     a {
@@ -48,5 +53,37 @@
     .icon {
         width: 20px;
         margin-top: -3px;
+    }
+}
+
+.show-more-button {
+    pointer-events: all;
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 10px 12px;
+    width: 152px;
+    margin: 30px auto 0 auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    @media screen and (min-width: 600px) {
+        display: none;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 12px;
+        font-style: none;
+        font-family: 'IBM Plex Mono';
+        color: black;
+    }
+
+    .icon {
+        width: 12px;
     }
 }
