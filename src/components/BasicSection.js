@@ -1,26 +1,22 @@
-import React, { Component, Fragment } from 'react';
-import LazyLoad from 'react-lazyload';
-
-import PhatLine from '../images/phat-line.svg';
+import React, { Component } from 'react';
 
 class BasicSection extends Component {
     render() {
         const { text } = this.props;
-
         return (
             <div style={{ position: 'relative' }}>
-                <section
+                <div
                     id="section-one"
-                    className="section generic"
+                    className="padding generic"
                     style={{
-                        marginBottom: '340px',
                         zIndex: 1,
-                        background: 'transparent'
+                        background: 'transparent',
+                        maxWidth: '500px'
                     }}
                 >
-                    <h3 className="heading" style={{ color: 'blue' }}>What's it for?</h3>
+                    <h3 className="heading" style={{ color: 'blue', border: 'none' }}>What's it for?</h3>
                     <p className="sub-text">{text}</p>
-                </section>
+                </div>
                 <div className="divider-lol"></div> 
             </div>
         );

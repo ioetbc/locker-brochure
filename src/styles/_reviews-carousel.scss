@@ -2,6 +2,11 @@
     display: flex;
     animation: moveSlideshow 30s linear infinite;
     transform: translate3d(0, 0, 0);
+    margin-bottom: 100px;
+
+    @media screen and (min-width: 600px) {
+        margin-bottom: 0;
+    }
 
     @keyframes moveSlideshow {
         0% { 
@@ -29,6 +34,11 @@
         p {
             font-size: 22px;
             color: white;
+
+            &:nth-child(2) {
+                font-size: 16px;
+                font-style: italic;
+            }
         }
     }
 }

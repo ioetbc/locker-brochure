@@ -1,4 +1,4 @@
-import React, { Component, Suspense, Children } from 'react';
+import React, { Component } from 'react';
 import './App.scss';
 import axios from 'axios';
 import { includes } from 'lodash';
@@ -12,7 +12,6 @@ import Footer from './components/Footer';
 import Video from './components/Video';
 import Donate from './components/Donate';
 import Generic from './components/Generic';
-import Test from './components/Test';
 
 class App extends Component {
 	constructor(props) {
@@ -77,8 +76,6 @@ class App extends Component {
 	}
 	
 	addReview(name, review) {
-		console.log('add a ducking review', {name, review});
-
 		axios({
 			method: 'post',
 			url: 'https://us-central1-locker-8bd45.cloudfunctions.net/addReview',
@@ -122,7 +119,7 @@ class App extends Component {
 				<Generic
 					backgroundColor="blue"
 					title="Reviews"
-					cta="Submit review"
+					cta="Submit Review"
 					addReview={this.addReview}
 				>
 					<ReviewCarousel />
@@ -139,13 +136,7 @@ class App extends Component {
 					<Donate />
 				</Generic>
 
-
-
-
-
-
 				<Footer />
-
 			</div>
 		);
 	}
