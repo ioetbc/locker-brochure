@@ -42,6 +42,18 @@
         }
     }
 
+    &.footer-button {
+        border-color: white;
+        padding: 10px 20px;
+        margin-left: 14px;
+        margin-top: 24px;
+        @media screen and (min-width: 600px) {
+            margin-right: 10px;
+            margin-left: 0;
+            margin-top: 0;
+        }
+    }
+
     a {
         text-decoration: none;
         font-size: 12px;

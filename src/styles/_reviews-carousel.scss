@@ -42,3 +42,63 @@
         }
     }
 }
+
+.reviews-form {
+    position: fixed;
+    background: white;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form {
+        width: 400px;
+    }
+
+    .close-icon {
+        position: absolute;
+        width: 30px;
+        top: 30px;
+        right: 30px;
+        cursor: pointer;
+    }
+
+    .floating-label-wrapper {
+        position: relative;
+
+        input, textarea {
+            border: 1px blue solid;
+            border-radius: 4px;
+            background-color: white;
+            cursor: text;
+            height: 50px;
+            overflow: hidden;
+            position: relative;
+            transition: background 166ms ease-in-out;
+            user-select: none;
+            width: 100%;
+            text-indent: 12px;
+        }
+
+        .review {
+            height: 160px;
+            padding-top: 14px;
+        }
+
+        .floating-label {
+            font-size: 13px;
+            color: black;
+            position: absolute;
+            pointer-events: none;
+            top: 50%;
+            left: 16px;
+            transform: translateY(-50%);
+            transition: all 0.1s ease;
+        }
+    }
+}

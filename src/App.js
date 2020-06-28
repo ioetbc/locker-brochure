@@ -17,15 +17,17 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { count: 0, video: false, showMoreLogos: false };
+		this.state = { count: 0, video: false, showMoreLogos: false, showReviewForm: false };
 		this.updateCounter = this.updateCounter.bind(this);
 		this.fadeInSections = this.fadeInSections.bind(this);
+		this.handleReviewForm = this.handleReviewForm.bind(this);
 	}
 
 	componentDidMount() {
+		// TODO get the urk from notesor get from firebase
 		axios({
 			method: 'get',
-			url: 'https://us-central1-locker-8bd45.cloudfunctions.net/getDownloadCount',
+			url: '',
 			config: {
 				headers: {
 					'Content-Type': 'application/json'
@@ -74,24 +76,14 @@ class App extends Component {
 			});
 		})
 	}
-	
-	addReview(name, review) {
-		axios({
-			method: 'post',
-			url: 'https://us-central1-locker-8bd45.cloudfunctions.net/addReview',
-			config: {
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			},
-			data: {
-				review: { name, review },
-			},
-		});
+
+	handleReviewForm() {
+		this.setState({ showReviewForm: !this.state.showReviewForm });
 	}
 
 	render() {
-		const { video, currentCount } = this.state;
+		const { video, currentCount, showReviewForm } = this.state;
+		// console.log('showReviewForm', showReviewForm)
 		return (
 			<div className="app">
 				<Header
@@ -120,9 +112,14 @@ class App extends Component {
 					backgroundColor="blue"
 					title="Reviews"
 					cta="Submit Review"
-					addReview={this.addReview}
+					handleReviewForm={this.handleReviewForm}
 				>
-					<ReviewCarousel />
+					<ReviewCarousel
+						handleChange={this.handleChange}
+						showReviewForm={showReviewForm}
+						addReview={this.addReview}
+						handleReviewForm={this.handleReviewForm}
+					/>
 				</Generic>
 
 				<DownloadCounter
@@ -136,7 +133,9 @@ class App extends Component {
 					<Donate />
 				</Generic>
 
-				<Footer />
+				<Footer
+					updateCounter={this.updateCounter }
+				/>
 			</div>
 		);
 	}
