@@ -64,7 +64,7 @@ class App extends Component {
 		this.setState({ currentCount: this.state.currentCount + 1 }, () => {
 			return axios({
 				method: 'post',
-				url: 'https://us-central1-locker-8bd45.cloudfunctions.net/increaseDownloadCount',
+				url: '',
 				config: {
 					headers: {
 						'Content-Type': 'application/json'

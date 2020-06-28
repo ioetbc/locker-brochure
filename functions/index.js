@@ -3,22 +3,12 @@ const admin = require('firebase-admin');
 const cors = require('cors')({ origin: true });
 
 // TODO put these values in config
-admin.initializeApp({
-    apiKey: "AIzaSyAj90jyiim-24ChI-z9ox0maDNDz0fMb2M",
-    authDomain: "locker-8bd45.firebaseapp.com",
-    databaseURL: "https://locker-8bd45.firebaseio.com",
-    projectId: "locker-8bd45",
-    storageBucket: "locker-8bd45.appspot.com",
-    messagingSenderId: "960191982754",
-    appId: "1:960191982754:web:485e5e1434250c5b13fbfb",
-    measurementId: "G-B5GBRSZ0V2"
-});
 
 const db = admin.firestore();
 
 exports.getDownloadCount = functions.https.onRequest(async (req, res) => {
     cors(req, res, async () => {
-        const ref = db.collection('downloadCounter').doc('yVKW54i1BmjDx1kU1pf9');
+        const ref = db.collection('downloadCounter').doc('');
         let count = 'hello';
 
         await ref.get()
@@ -40,7 +30,7 @@ exports.getDownloadCount = functions.https.onRequest(async (req, res) => {
 
 exports.increaseDownloadCount = functions.https.onRequest(async (req, res) => {
     cors(req, res, async () => {
-        const ref = db.collection('downloadCounter').doc('yVKW54i1BmjDx1kU1pf9');
+        const ref = db.collection('downloadCounter').doc('');
         let count = '0';
 
         ref.get()
@@ -65,7 +55,7 @@ exports.increaseDownloadCount = functions.https.onRequest(async (req, res) => {
 
 exports.getReviews = functions.https.onRequest(async (req, res) => {
     cors(req, res, async () => {
-        const ref = db.collection('reviews').doc('9EW2fIyzWGokliR4TmJi');
+        const ref = db.collection('reviews').doc('');
         let reviews = [];
 
         await ref.get()
@@ -86,7 +76,7 @@ exports.getReviews = functions.https.onRequest(async (req, res) => {
 
 exports.addReview = functions.https.onRequest(async (req, res) => {
     cors(req, res, async () => {
-        const ref = db.collection('reviews').doc('9EW2fIyzWGokliR4TmJi');
+        const ref = db.collection('reviews').doc('');
 
         ref.get()
             .then(doc => {
